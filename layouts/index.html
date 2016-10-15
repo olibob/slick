@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "header" . }}
+{{ partial "nav" . }}
+<div class="container">
+  <article>
+    {{ range .Paginator.Pages }}
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a> {{ if .Draft }} ::Draft{{ end }} <small>({{ .Date.Format "January 2, 2006" }})</small></h3>
+    {{ end }}
+  </article>
+<div class="text-center">
+  {{ template "_internal/pagination.html" . }}
+</div>
+</div>
+  {{ partial "footer" . }}
+</html>
